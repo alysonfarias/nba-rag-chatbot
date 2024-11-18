@@ -1,40 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+***DISCLAIMER***: This is a proof-of-concept project with no means to be a fully-fledged product.
 
-## Getting Started
+# Retrieval-Augmented Generation (RAG)
+![image](https://github.com/user-attachments/assets/0fb45dde-8005-4e7f-8a6a-fbb0eb003e48)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. [Overview](#overview)  
+2. [Tech Stack Workflow](#tech-stack-workflow)  
+3. [Purpose of the PoC](#purpose-of-the-poc)  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+**Retrieval-Augmented Generation (RAG)** is an advanced paradigm in natural language processing (NLP) that combines two core AI components: a **retrieval system** and a **generation model**. 
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- The **retrieval system** accesses a large corpus of information to provide relevant context or facts.  
+- The **generation model**, often based on transformer architectures like GPT, uses this context to generate accurate, coherent, and contextually rich responses.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+RAG bridges the gap between:
+- Generative models, which may produce fluent but factually inconsistent outputs.
+- Retrieval-based systems, which are grounded in real-world data but lack linguistic creativity.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+By leveraging both components, RAG ensures responses are fluent, factual, dynamic, and grounded in external knowledge sources.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+This document outlines the **Retrieval-Augmented Generation (RAG)** approach implemented as a **Proof of Concept (PoC)** for **NBA GPT**, a system designed to answer user queries about the NBA. RAG was employed to ensure accurate and contextually relevant responses by integrating information retrieval with natural language generation. The system utilizes the following external resources for retrieval:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+- [NBA Official Stats Website](https://www.nba.com/stats)  
+- [Wikipedia Article on the NBA](https://pt.wikipedia.org/wiki/National_Basketball_Association)  
+- [Wikipedia Article on NBA Records](https://pt.wikipedia.org/wiki/Lista_de_recordes_da_NBA)  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Tech Stack Workflow
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Frontend**: Built with **Next.js**, leveraging JavaScript for dynamic, responsive user interfaces.
+2. **Backend**: Uses **LangChain.js** to handle retrieval-augmented generation by combining OpenAI's LLM with external data sources.
+3. **Hosting**: Deployed on **Vercel** for efficient and scalable delivery to end users.
+4. **Language Model**: Powered by **OpenAI** for natural language understanding and generation.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+
+## Purpose of the PoC
+
+The primary goal of this PoC is to demonstrate the capability of RAG to:
+1. Retrieve relevant information from reliable external sources.
+2. Provide factual and well-structured responses to user queries about the NBA.
+3. Highlight the benefits of combining retrieval and generation for domain-specific applications.
+
+### The results
+The **gpt-3.5-turbo** which is data traininig is limited **Up to Sep 2021** from https://platform.openai.com/docs/models [18/11/2024]
+![image](https://github.com/user-attachments/assets/8f060798-ce90-4ad2-83e0-341e6e32706d)
+
+The OpenAI API is now capable of answering any questions related to the sites I mentioned, based on the **data** from _NBA Official Stats Website_, _Wikipedia Article on the NBA_, _Wikipedia Article on NBA Records_ from the this date 18/11/2024
+
+
